@@ -20,10 +20,13 @@ Student::~Student() {
 	if (Name != 0) delete Name;
 	if (Address != 0) delete Address;
 	if (DateOfFirstEnrollment != 0) delete DateOfFirstEnrollment;
+	if (date != 0) delete date;
+	if (Identifier != 0) delete Identifier;
+	if (NumberOfCreditHourse != 0) delete NumberOfCreditHourse;
 
-	Identifier = 0;
-	date = 0;
-	NumberOfCreditHourse = 0;
+	Identifier[0] = 0;
+	date[0] = 0;
+	NumberOfCreditHourse[0] = 0;
 	Name[0] = 0;
 	Address[0] = 0;
 	DateOfFirstEnrollment[0] = 0;

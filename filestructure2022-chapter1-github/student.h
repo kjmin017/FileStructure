@@ -6,8 +6,8 @@ class Student
 {
 public:
 	// data members
-	int Identifier; char Name[11]; char Address[16];
-	int date; char DateOfFirstEnrollment[16]; int NumberOfCreditHourse;
+	char Identifier[9]; char Name[11]; char Address[16];
+	char date[10]; char DateOfFirstEnrollment[16]; char NumberOfCreditHourse[];
 	// method
 	Student(); // default constructor
 	~Student();
