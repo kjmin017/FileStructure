@@ -101,7 +101,9 @@
     <ClCompile Include="person.cpp" />
     <ClCompile Include="String.cpp" />
     <ClCompile Include="testCourseRegistration.cpp" />
-    <ClCompile Include="testString.cpp" />
+    <ClCompile Include="testString.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="testStudent.cpp" />
   </ItemGroup>
   <ItemGroup>
