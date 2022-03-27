@@ -27,8 +27,16 @@
     <ClCompile Include="writedel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="writeper.cpp">
+    <ClCompile Include="writestudent.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="student.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CourseRegistration.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

@@ -3,7 +3,7 @@
 #include <fstream>
 #include <strstream>
 #include <string.h>
-#include "person.h"
+#include "student.h"
 using namespace std;
 istream & operator >> (istream & stream, Person & p)
 { // read fields from stream
