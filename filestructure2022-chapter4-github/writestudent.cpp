@@ -24,6 +24,7 @@ int WriteStudent (ostream & stream, Student & p)
 istream& operator >> (istream& stream, Student& p)
 { // read fields from input
 	cout << "Enter Identifier, or <cr> to end: " << flush; stream >> p.Identifier;
+	
 	if (strlen(to_string(p.Identifier).c_str()) == 0) return stream;
 	cout << "Enter Name: " << flush; stream.getline(p.Name, 30);
 	cout << "Enter Address: " << flush; stream.getline(p.Address, 30);
