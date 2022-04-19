@@ -41,6 +41,11 @@ void testFixText()
 	cout << "Enter the file name:" << flush;
 	cin.getline(filename, 19);
 	//*
+	string name[5];
+	string address[5];
+	int DFE[5];
+	int identifier[5];
+	int NCHC[5];
 	while (1)
 	{
 		int count;
@@ -51,19 +56,24 @@ void testFixText()
 		switch (select) {
 		case 1:
 			//to store a array of Person objects by inputing
-			cout << "the number of Person object records : ";
+			cout << "the number of Student object records : ";
 			cin >> count;
 			cin.clear();
 			cin.ignore(INT_MAX, '\n');
 			for (int i = 0; i < count; i++)
 			{
+				cin >> name[i]; cin.ignore();
+				cin >> address[i]; cin.ignore();
+				cin >> DFE[i];
+				cin >> identifier[i];
+				cin >> NCHC[i];
 			}
 			break;
 		case 2:
 			// to display the array of Person objects into screen
 			for (int i = 0; i < count; i++)
 			{
-
+				cout << name[i] << "//" << address[i] << "//" << DFE[i] << "//" << identifier[i] << "//" << NCHC[i] << endl;
 			}
 			break;
 		case 3:
@@ -77,7 +87,7 @@ void testFixText()
 			Student::InitBuffer(InBuff);
 			for (int i = 0; i < count; i++)
 			{
-
+				fostream << name[i] << "//" << address[i] << "//" << DFE[i] << "//" << identifier[i] << "//" << NCHC[i] << endl;
 			}
 			fostream.close();
 			break;
@@ -93,7 +103,7 @@ void testFixText()
 			Student::InitBuffer(InBuff);
 			for (int i = 0; i < count; i++)
 			{
-
+				fistream >> name[i] >> "//" >> address[i] >> "//" >> DFE[i] >> "//" >> identifier[i] >> "//" >> NCHC[i];
 			}
 			fistream.close();
 			break;
@@ -144,6 +154,11 @@ int testLenText()
 	cout << "unpack " << s.Unpack(Buff) << endl;
 	s.Print(cout);
 	//*
+	string name[5];
+	string address[5];
+	int DFE[5];
+	int identifier[5];
+	int NCHC[5];
 	while (1)
 	{
 		int count;
@@ -154,19 +169,24 @@ int testLenText()
 		switch (select) {
 		case 1:
 			//to store a array of Person objects by inputing
-			cout << "the number of Person object records : ";
+			cout << "the number of Student object records : ";
 			cin >> count;
 			cin.clear();
 			cin.ignore(INT_MAX, '\n');
 			for (int i = 0; i < count; i++)
 			{
+				cin >> name[i]; cin.ignore();
+				cin >> address[i]; cin.ignore();
+				cin >> DFE[i];
+				cin >> identifier[i];
+				cin >> NCHC[i];
 			}
 			break;
 		case 2:
 			// to display the array of Person objects into screen
 			for (int i = 0; i < count; i++)
 			{
-
+				cout << name[i] << "//" << address[i] << "//" << DFE[i] << "//" << identifier[i] << "//" << NCHC[i] << endl;
 			}
 			break;
 		case 3:
@@ -180,7 +200,7 @@ int testLenText()
 			Student::InitBuffer(InBuff);
 			for (int i = 0; i < count; i++)
 			{
-
+				fostream << name[i] << "//" << address[i] << "//" << DFE[i] << "//" << identifier[i] << "//" << NCHC[i] << endl;
 			}
 			fostream.close();
 			break;
@@ -196,7 +216,7 @@ int testLenText()
 			Student::InitBuffer(InBuff);
 			for (int i = 0; i < count; i++)
 			{
-
+				fistream >> name[i] >> "//" >> address[i] >> "//" >> DFE[i] >> "//" >> identifier[i] >> "//" >> NCHC[i];
 			}
 			fistream.close();
 			break;
@@ -246,6 +266,11 @@ int testDelText()
 	cout << "unpack " << s.Unpack(Buff) << endl;
 	s.Print(cout);
 	//*
+	string name[5];
+	string address[5];
+	int DFE[5];
+	int identifier[5];
+	int NCHC[5];
 	while (1)
 	{
 		int count; int select;
@@ -255,20 +280,25 @@ int testDelText()
 		switch (select) {
 		case 1:
 			//to store a array of Person objects by inputing
-			cout << "the number of Person object records : ";
+			cout << "the number of Student object records : ";
 			cin >> count;
 			cin.clear();
 			cin.ignore(INT_MAX, '\n');
+
 			for (int i = 0; i < count; i++)
 			{
-
+				cin >> name[i]; cin.ignore();
+				cin >> address[i]; cin.ignore();
+				cin >> DFE[i]; 
+				cin >> identifier[i];
+				cin >> NCHC[i];
 			}
 			break;
 		case 2:
 			// to display the array of Person objects into screen
 			for (int i = 0; i < count; i++)
 			{
-
+				cout << name[i] << "//" << address[i] << "//" << DFE[i] << "//" << identifier[i] << "//" << NCHC[i] << endl;
 			}
 			break;
 		case 3:
@@ -282,7 +312,7 @@ int testDelText()
 			Student::InitBuffer(InBuff);
 			for (int i = 0; i < count; i++)
 			{
-
+				fostream << name[i] << "//" << address[i] << "//" << DFE[i] << "//" << identifier[i] << "//" << NCHC[i] << endl;
 			}
 			fostream.close();
 			break;
@@ -298,7 +328,7 @@ int testDelText()
 			Student::InitBuffer(InBuff);
 			for (int i = 0; i < count; i++)
 			{
-
+				fistream >> name[i] >> "//" >> address[i] >> "//" >> DFE[i] >> "//" >> identifier[i] >> "//" >> NCHC[i];
 			}
 			fistream.close();
 			break;
