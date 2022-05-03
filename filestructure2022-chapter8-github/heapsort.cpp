@@ -6,6 +6,7 @@
 #define FALSE (0)
 #define TRUE (1)
 #endif
+#include <iostream>
 using namespace std;
 
 class Heap
