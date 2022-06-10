@@ -57,6 +57,12 @@
     <ClCompile Include="varlen.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="z-testPostTransaction.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="z-test-Btree.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="btnode.h">

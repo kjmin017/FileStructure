@@ -14,6 +14,7 @@ class RecordFile : public BufferFile
 {
 public:
 	int Read(RecType & record, int recaddr = -1);
+	int Read(char* key, RecType& record);
 	int Write(const RecType & record, int recaddr = -1);
 	int Append(const RecType & record);
 	RecordFile(IOBuffer & buffer) : BufferFile(buffer) {}
@@ -30,7 +31,16 @@ int RecordFile<RecType>::Read(RecType & record, int recaddr)
 	if (!result) return -1;
 	return writeAddr;
 }
-
+template <class RecType>
+int RecordFile<RecType>::Read(char * key, RecType& record)
+{
+	int writeAddr, result;
+	writeAddr = BufferFile::Read(-1);
+	if (!writeAddr) return -1;
+	result = record.Unpack(Buffer);
+	if (!result) return -1;
+	return writeAddr;
+}
 template <class RecType>
 int RecordFile<RecType>::Write(const RecType & record, int recaddr)
 {

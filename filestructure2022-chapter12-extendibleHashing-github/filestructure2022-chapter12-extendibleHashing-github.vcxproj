@@ -20,7 +20,7 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
-    <ProjectGuid>{91AFDB8F-0A34-4B89-AE4E-0B2ABE8B1EF9}</ProjectGuid>
+    <ProjectGuid>{A24A909E-D1F3-4198-8751-97E53D49FCAE}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -97,60 +97,52 @@
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
   </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Link>
+      <SubSystem>Console</SubSystem>
+    </Link>
+  </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="buffile.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="heapsort.cpp">
+    <ClCompile Include="bucket.cpp" />
+    <ClCompile Include="Buffile.cpp" />
+    <ClCompile Include="courseregistration.cpp" />
+    <ClCompile Include="direct.cpp" />
+    <ClCompile Include="Fixfld.cpp" />
+    <ClCompile Include="Fixlen.cpp" />
+    <ClCompile Include="Fixtext.cpp" />
+    <ClCompile Include="hash.cpp" />
+    <ClCompile Include="indbuff.cpp" />
+    <ClCompile Include="Iobuffer.cpp" />
+    <ClCompile Include="Length.cpp" />
+    <ClCompile Include="recording.cpp" />
+    <ClCompile Include="student.cpp" />
+    <ClCompile Include="testhash.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="iobuffer.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="ledger.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="ledgpost.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="length.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="match.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="mkfile.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="post.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="strclass.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="strlist.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="varlen.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="z-testPostTransaction.cpp" />
+    <ClCompile Include="textind.cpp" />
+    <ClCompile Include="tindbuff.cpp" />
+    <ClCompile Include="Varlen.cpp" />
+    <ClCompile Include="z_assignment_chapter12.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="buffile.h" />
-    <ClInclude Include="coseq.h" />
-    <ClInclude Include="iobuffer.h" />
-    <ClInclude Include="ledger.h" />
-    <ClInclude Include="ledgpost.h" />
-    <ClInclude Include="length.h" />
-    <ClInclude Include="mastrans.h" />
+    <ClInclude Include="bucket.h" />
+    <ClInclude Include="Buffile.h" />
+    <ClInclude Include="courseregistration.h" />
+    <ClInclude Include="direct.h" />
+    <ClInclude Include="Fixfld.h" />
+    <ClInclude Include="Fixlen.h" />
+    <ClInclude Include="Fixtext.h" />
+    <ClInclude Include="hash.h" />
+    <ClInclude Include="indbuff.h" />
+    <ClInclude Include="Iobuffer.h" />
+    <ClInclude Include="Length.h" />
     <ClInclude Include="recfile.h" />
-    <ClInclude Include="strclass.h" />
-    <ClInclude Include="strlist.h" />
-    <ClInclude Include="varlen.h" />
+    <ClInclude Include="recording.h" />
+    <ClInclude Include="student.h" />
+    <ClInclude Include="textind.h" />
+    <ClInclude Include="tindbuff.h" />
+    <ClInclude Include="Varlen.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
