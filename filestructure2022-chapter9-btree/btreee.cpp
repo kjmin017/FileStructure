@@ -1,4 +1,18 @@
 /*
+B-Tree의 특징
+B-Tree는 아래에서 위로 동작하는 Upward from the Bottom 형식이다. 인덱스 레코드가 꽉 차있지 않아도 되며, 
+overflow가 발생했을 때 split을 통해 node의 레코드를 둘로 나눈다.
+
+또한 leaf node에서 데이터를 가리키고 leaf node를 제외한 나머지 node에서는 다른 node를 가리키는 포인터를 가지고 있다. 
+또한 B-Tree의 order는 각 node에서 최대로 가질 수 있는 인덱스 필드의 포인터 개수이다.
+
+order가 m인 B-Tree의 특징은 다음과 같다.
+각 node는 최대 m개의 자식을 가질 수 있다.
+root node는 leaf node를 제외한 모든 node는 반드시 m/2개의 자식 노드를 가져야 한다.
+높이가 1 이상인 B-Tree의 root node는 최소 2개의 자식 node를 가져야 한다.
+모든 leaf node는 같은 레벨에 위치해야 한다.
+
+B-Tree algorithm
 Find correct leaf L // search
 Put data entry onto L // put
 	if L has enough space, done!
@@ -6,6 +20,9 @@ Put data entry onto L // put
 Parent node may overflow
 	then push up
 
+객체 지향적 프로그래밍 관점에서의 B-Tree
+B-Tree는 인덱스 파일이며 대부분의 B-Tree 연산은 메모리에서 수행한다. 
+B-Tree의 일부인 특정한 node를 메모리에 올려서 연산을 수행하는데, 따라서 SimpleIndex 클래스를 상속받은 BTreeNode 클래스를 구현해야 한다.
 
 template <class keyType>
 class SimpleIndex
@@ -49,6 +66,10 @@ protected:
 	friend class BTree<keyType>;
 };
 
+
+각 node에서의 연산 결과는 BTree 클래스로 전달된다. BTree 클래스는 디스크에 있는 B-Tree의 정보를 나타내는 클래스로, 
+노드를 선택하여 메모리에 올리고 연산을 수행하는 동작을 정의한다.
+
 template <class keyType>
 class BTree
 // this is the full version of the BTree
@@ -85,6 +106,10 @@ protected:
   RecordFile<BTNode> BTreeFile;
 };
 
+
+BTree에서 Search는 두 단계로 진행된다. 먼저 root에서부터 시작하여 leafnode를 찾는다. 
+만약 leafnode를 발견하면 그 node에서 다시 원하는 키값에 해당하는 레코드를 찾는다.
+
 template <class keyType>
 int BTree<keyType>::Search(const keyType key, const int recAddr)
 {
@@ -107,6 +132,17 @@ BTreeNode<keyType>* BTree<keyType>::FindLeaf(const keyType key)
 	}
 	return Nodes[level-1];
 }
+
+
+Insert는 새로운 데이터를 삽입하는 메서드로, root에서부터 input의 위치를 찾고 그 위치의 node 상태에 따라 다양한 동작들을 수행한다.
+
+
+
+Step 1. key를 삽입하기 위해 leaf의 level을 찾는다.
+Step 2. node에 빈 공간이 존재하면 새 데이터를 삽입하고 포인터를 업데이트한다.
+Step 3. node에 overflow가 발생하면 새로운 node를 생성하여 split을 통해 반씩 나누어 저장한다.
+Step 4. split될 때 조상 node에 overflow가 발생하면 마찬가지로 split을 통해 반씩 나누어 저장한다.
+Step 5. 만일 root node에서도 overflow가 발생하면 새로운 root node를 생성하여 split한다.
 
 template <class keyType>
 int BTree<keyType>::Insert (const keyType key, const int recAddr)
@@ -185,6 +221,27 @@ int BTreeNode<keyType>::Split (BTreeNode<keyType> * newNode)
 }
 
 
+Remove는 데이터를 삭제하는 메서드로, root에서부터 key의 위치를 찾고 그 위치의 node 상태에 따라 다양한 동작들을 수행한다. 
+node n에서 key k를 지우는 단계는 다음과 같다.
 
 
+
+Step 1. key를 제거하기 위해 leaf의 level을 찾는다.
+Step 2. node n의 entry 수 > m/2이고 k가 가장 큰 값이 아니라면 그냥 지운다.
+Step 3. node n의 entry 수 > m/2이고 k가 가장 큰 값이면 key를 지우고 포인터를 새로운 largest key를 가리키도록 업데이트한다.
+Step 4. node n의 entry 수 = m/2이고 n의 형제 node가 충분한 공간을 가진다면 node n과 형제 node를 merge하고 부모 node에서 포인터를 지운다.
+Step 5. node n의 entry 수 = m/2이고 n의 형제 node도 공간이 없다면 부모 노드를 새로 나누어 빈 공간을 가지는 node를 만든 후 포인터를 업데이트한다.
+
+
+
+B-Tree의 Worst case
+B-Tree도 당연히 worst case가 존재한다. 앞서 말한 B-Tree의 특징 2번과 3번에 의해 order가 m인 B-Tree에서 node는 m/2개의 자식 노드를 가져야 한다. 
+이때 모든 node가 딱 반만 차있다면 B-Tree의 특징은 만족하면서 node의 수는 가장 많은 worst case가 된다.
+
+
+
+이 경우 다음을 만족하는 d가 B-Tree의 level이 된다.
 */
+
+
+

@@ -100,6 +100,7 @@
   <ItemGroup>
     <ClCompile Include="btnode.cpp" />
     <ClCompile Include="btree.cpp" />
+    <ClCompile Include="btreee.cpp" />
     <ClCompile Include="buffile.cpp" />
     <ClCompile Include="fixfld.cpp" />
     <ClCompile Include="fixlen.cpp" />
