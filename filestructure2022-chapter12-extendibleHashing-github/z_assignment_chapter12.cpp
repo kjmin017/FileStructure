@@ -232,7 +232,7 @@ int main(int argc, char** argv)
 			resultIndexc = Dirc.Open("coursehash");
 			if (resultIndexc == 0)
 			{
-				cout << "Please create tsthash.dir and tsthash.bkt" << endl;
+				cout << "Please create coursehash.dir and coursehash.bkt" << endl;
 				return 0;
 			}
 			cout << "Input key what remove : ";
